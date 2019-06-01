@@ -17,6 +17,11 @@
 
 	<properties>
 		<java.version>1.8</java.version>
+		<hibernate.version>5.3.7.Final</hibernate.version>
+		<junit.version>4.12</junit.version>
+		<!--<prop key="hibernate.hbm2ddl.auto">create</prop>--> <!-- astea 2 le-am pus ca inceracre sa fac direct database in workbench-->
+		<!--<property name="hibernate.show_sql" value="true"/>-->
+
 	</properties>
 
 	<dependencies>
@@ -32,13 +37,36 @@
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<scope>runtime</scope>
 		</dependency>
+
+		<!-- Hibernate -->
+		<dependency>
+
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+		</dependency>
+
+		<!-- Unit Test -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+
+		<!-- -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
 			<scope>provided</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
