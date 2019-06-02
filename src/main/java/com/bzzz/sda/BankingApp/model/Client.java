@@ -19,7 +19,7 @@ public class Client {
   @Length(max = 50)
   private String prenume;
 
-  @Column
+  @Column(unique = true)
   @Length(max = 50)
   private String username;
 
