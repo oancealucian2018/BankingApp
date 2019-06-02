@@ -3,59 +3,62 @@ package com.bzzz.sda.BankingApp.model;
 import javax.persistence.*;
 
 @Entity
-public class Cont
-{
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+public class Cont {
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private Long id;
 
-    @Column (name = "iban", unique = true)
-    private String iban;
+  @Column(name = "iban", unique = true)
+  private String iban;
 
-    @Column (name="balanta")
-    private Double balanta;
+  @Column(name = "balanta")
+  private Double balanta;
 
-    @ManyToOne
-    @JoinColumn(name = "sucursala_id")
-    private Sucursala sucursala;
+  @ManyToOne
+  @JoinColumn(name = "sucursala_id")
+  private Sucursala sucursala;
 
-    public Long getId()
-    {
-        return id;
-    }
+  @ManyToOne
+  @JoinColumn(name = "client_id")
+  private Client client;
 
-    public void setId(Long id)
-    {
-        this.id = id;
-    }
+  public void setClient(Client client) {
+    this.client = client;
+  }
 
-    public String getIban()
-    {
-        return iban;
-    }
+  public Client getClient() {
+    return client;
+  }
 
-    public void setIban(String iban)
-    {
-        this.iban = iban;
-    }
+  public Long getId() {
+    return id;
+  }
 
-    public Double getBalanta()
-    {
-        return balanta;
-    }
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-    public void setBalanta(Double balanta)
-    {
-        this.balanta = balanta;
-    }
+  public String getIban() {
+    return iban;
+  }
 
-    public Sucursala getSucursala()
-    {
-        return sucursala;
-    }
+  public void setIban(String iban) {
+    this.iban = iban;
+  }
 
-    public void setSucursala(Sucursala sucursala)
-    {
-        this.sucursala = sucursala;
-    }
+  public Double getBalanta() {
+    return balanta;
+  }
+
+  public void setBalanta(Double balanta) {
+    this.balanta = balanta;
+  }
+
+  public Sucursala getSucursala() {
+    return sucursala;
+  }
+
+  public void setSucursala(Sucursala sucursala) {
+    this.sucursala = sucursala;
+  }
 }
