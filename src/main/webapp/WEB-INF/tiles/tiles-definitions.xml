@@ -39,6 +39,21 @@
 		<put-attribute name="body" value="/WEB-INF/pages/listaConturi.jsp" />
 	</definition>
 
+	<definition name="withdraw" extends="main-layout">
+		<put-attribute name="title" value="Accounts details" />
+		<put-attribute name="body" value="/WEB-INF/pages/withdraw.jsp" />
+	</definition>
+
+	<definition name="deposit" extends="main-layout">
+		<put-attribute name="title" value="Accounts details" />
+		<put-attribute name="body" value="/WEB-INF/pages/deposit.jsp" />
+	</definition>
+
+	<definition name="transaction" extends="main-layout">
+		<put-attribute name="title" value="Accounts details" />
+		<put-attribute name="body" value="/WEB-INF/pages/transaction.jsp" />
+	</definition>
+
 	<definition name="error" extends="main-layout">
 		<put-attribute name="title" value="Error page" />
 		<put-attribute name="body" value="/WEB-INF/pages/error.jsp" />

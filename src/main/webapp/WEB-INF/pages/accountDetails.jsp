@@ -2,15 +2,29 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
-
-<spring:url value="/mybankingapp" var="url" htmlEscape="true"/>
 <div class="container">
-	<form:form id="form" modelAttribute="client" method="post" action="${url}" class="form-signin">
-	     <div class="form-group">
-		</div>
-	</form:form>
-	<div class="col-md-5">
-		${cont.iban}<br><br>
-		${cont.balanta}
-	</div>
+    <table class="table table-bordered table-striped">
+         <thead>
+             <tr>
+                 <th>IBAN</th>
+                 <th>BALANTA</th>
+             </tr>
+         </thead>
+         <tbody>
+             <tr>
+                 <td>${cont.iban}</td>
+                 <td>${cont.balanta}</td>
+             </tr>
+             <tr>
+                 <td>
+
+                 </td>
+                 <td>
+                     <form:form id="form" modelAttribute="cont" method="post" action="/initTransaction" class="form-signin">
+                        <input type="submit" name="action" value="Initiere tranzactie" class="btn btn-success" />
+                     </form:form>
+                 </td>
+             </tr>
+         </tbody>
+     </table>
 </div>

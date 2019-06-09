@@ -9,7 +9,6 @@ import java.util.List;
 import static javax.persistence.FetchType.LAZY;
 
 @Entity
-// @Table(name = "Sucursala") //Trebuie sa facem si asta?
 public class Sucursala {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)

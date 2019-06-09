@@ -17,13 +17,6 @@ import org.springframework.web.servlet.ModelAndView;
 @SessionAttributes("client")
 public class LoginController {
 
-  @Autowired private ClientService clientService;
-  @Autowired private ContService contService;
-
-  //	@InitBinder
-  //	protected void initBinder(WebDataBinder binder) {
-  //		binder.setValidator(userFormValidator);
-  //	}
 
   @ModelAttribute("client")
   public Client setUpClientForm() {
@@ -33,31 +26,5 @@ public class LoginController {
   @GetMapping("/")
   public String index() {
     return "login";
-  }
-
-  //  	@RequestMapping(value = "/",  method = GET)
-  //  	//@ModelAttribute("client")
-  //  	public ModelAndView goToLoginPage(HttpSession httpSession) {
-  //  		Map<String, Client> model = new HashMap<String, Client>();
-  //  		model.put("client", new Client());
-  //  		httpSession.setAttribute("client", new Client());
-  //  		return new ModelAndView("login", model);
-  //  	}
-
-  @PostMapping("/accountDetails")
-  public ModelAndView authenticateClient(@ModelAttribute("client") Client client, ModelMap model)
-      throws NotAuthorizedException {
-
-    Client dbClient = clientService.getByUsername(client.getUsername());
-
-    if (null == dbClient || false == dbClient.getParola().equals(client.getParola())) {
-      throw new NotAuthorizedException("User not authorized!");
-    }
-
-    Cont cont = contService.getByClientId(dbClient.getId());
-    model.put("cont", cont);
-    model.put("client", dbClient);
-
-    return new ModelAndView("accountDetails", model);
   }
 }
