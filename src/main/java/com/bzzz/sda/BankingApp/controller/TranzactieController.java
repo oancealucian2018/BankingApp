@@ -39,7 +39,8 @@ public class TranzactieController {
         ModelMap model = new ModelMap();
         Tranzactie newTransaction = service.proceedTransaction(cont, tranzactie);
 
-        request.setAttribute("cont", newTransaction.getCont());
+        request.getSession().removeAttribute("cont");
+        request.getSession().setAttribute("cont", newTransaction.getCont());
         model.put("transaction", newTransaction);
         return new ModelAndView("accountDetails", model);
     }
